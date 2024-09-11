@@ -15,3 +15,12 @@ interface AnotherDog {
 let anotherCat = { purr: true };
 
 let anotherDog = anotherCat as unknown as AnotherDog;
+
+// 3 Solution by creating new Cat interface
+interface Cat {
+  purr: boolean;
+}
+
+let otherCat = { purr: true };
+
+let convertedCat = cat as Cat;
