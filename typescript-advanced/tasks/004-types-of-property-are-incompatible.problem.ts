@@ -26,7 +26,7 @@ const createRoutes = (config: {
 createRoutes(routingConfig);
 
 // 2. Solution
-const routingConfig1 = {
+const anotherRoutingConfig = {
   routes: [
     {
       path: "home",
@@ -43,11 +43,11 @@ const routingConfig1 = {
   ],
 };
 
-const createRoutes1 = (config: {
+const anotherCreateRoutes = (config: {
   routes: {
     path: string;
-    component: string | number;  // ! union type can also be used to fix error
+    component: string | number; // ! union type can also be used to fix error
   }[];
 }) => {};
 
-createRoutes1(routingConfig1);
+anotherCreateRoutes(anotherRoutingConfig);
