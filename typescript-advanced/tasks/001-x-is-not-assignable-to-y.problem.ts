@@ -12,3 +12,5 @@ let user: UserProfile = {
     theme: "light", // theme prop can only be 'light or 'dark'
   },
 };
+
+export {}; // To resolve "Cannot redeclare block-scoped variable"
