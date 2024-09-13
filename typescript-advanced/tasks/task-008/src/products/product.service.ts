@@ -1,6 +1,6 @@
-import { PRODUCT_ADDED_SUCCESSFULLY } from "./constants/messages";
-import { IProductDetails, ProductCategory } from "./product-details.interface";
-import { IProduct } from "./product.interface";
+import { PRODUCT_ADDED_SUCCESSFULLY } from "./constants/messages.js";
+import { IProductDetails, ProductCategory } from "./product-details.interface.js";
+import { IProduct } from "./product.interface.js";
 
 export class ProductManagementService implements IProduct {
   private storage: IProductDetails[];

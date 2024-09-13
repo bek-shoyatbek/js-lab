@@ -1,4 +1,4 @@
-import { IProductDetails } from "./product-details.interface";
+import { IProductDetails } from "./product-details.interface.js";
 
 export const myProductsDB: IProductDetails[] = [
   {

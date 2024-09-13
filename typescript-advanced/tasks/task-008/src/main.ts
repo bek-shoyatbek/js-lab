@@ -1,6 +1,6 @@
-import { myProductsDB } from "./products/product.db";
-import { IProductDetails } from "./products/product-details.interface";
-import { ProductManagementService } from "./products/product.service";
+import { myProductsDB } from "./products/product.db.js";
+import { IProductDetails } from "./products/product-details.interface.js";
+import { ProductManagementService } from "./products/product.service.js";
 
 function main() {
   const productManagementService = new ProductManagementService(myProductsDB);
@@ -11,7 +11,8 @@ function main() {
     status: "Discontinued",
     price: 70000,
   };
-  productManagementService.addProduct(newProduct);
+  const result = productManagementService.addProduct(newProduct);
+  console.log(result);
 }
 
 main();

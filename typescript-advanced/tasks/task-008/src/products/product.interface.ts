@@ -1,4 +1,4 @@
-import { IProductDetails, ProductCategory } from "./product-details.interface";
+import { IProductDetails, ProductCategory } from "./product-details.interface.js";
 
 export interface IProduct {
     addProduct(product: IProductDetails): string;
