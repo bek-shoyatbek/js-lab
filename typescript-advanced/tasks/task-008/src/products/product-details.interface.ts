@@ -7,7 +7,7 @@ export type ProductCategory =
 
 export type ProductStatus = "In Stock" | "Out of Stock" | "Discontinued";
 
-export interface IProductDetails {
+export interface ProductDetails {
   name: string;
   category: ProductCategory;
   status: ProductStatus;

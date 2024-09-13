@@ -1,26 +1,29 @@
 import { PRODUCT_ADDED_SUCCESSFULLY } from "./constants/messages.js";
-import { IProductDetails, ProductCategory } from "./product-details.interface.js";
+import {
+  ProductDetails,
+  ProductCategory,
+} from "./product-details.interface.js";
 import { IProduct } from "./product.interface.js";
 
 export class ProductManagementService implements IProduct {
-  private storage: IProductDetails[];
-  constructor(externalStorage?: IProductDetails[]) {
+  private storage: ProductDetails[];
+  constructor(externalStorage?: ProductDetails[]) {
     this.storage = externalStorage || [];
   }
 
-  addProduct(product: IProductDetails): string {
+  addProduct(product: ProductDetails): string {
     this.storage.push(product);
     return PRODUCT_ADDED_SUCCESSFULLY;
   }
 
   filterProductsByCategory(
-    products: IProductDetails[],
+    products: ProductDetails[],
     category: ProductCategory
-  ): IProductDetails[] {
+  ): ProductDetails[] {
     return products.filter((product) => product.category == category);
   }
 
-  isProductAvailable(product: IProductDetails): boolean {
+  isProductAvailable(product: ProductDetails): boolean {
     return product.status == "In Stock" ? true : false;
   }
 }

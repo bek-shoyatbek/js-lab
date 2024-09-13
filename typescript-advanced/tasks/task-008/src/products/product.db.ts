@@ -1,6 +1,6 @@
-import { IProductDetails } from "./product-details.interface.js";
+import { ProductDetails } from "./product-details.interface.js";
 
-export const myProductsDB: IProductDetails[] = [
+export const myProductsDB: ProductDetails[] = [
   {
     name: "The little prince",
     category: "Books",

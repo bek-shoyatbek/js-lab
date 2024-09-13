@@ -1,10 +1,13 @@
-import { IProductDetails, ProductCategory } from "./product-details.interface.js";
+import {
+  ProductDetails,
+  ProductCategory,
+} from "./product-details.interface.js";
 
 export interface IProduct {
-    addProduct(product: IProductDetails): string;
-    filterProductsByCategory(
-      products: IProductDetails[],
-      category: ProductCategory
-    ): IProductDetails[];
-    isProductAvailable(product: IProductDetails): boolean;
-  }
+  addProduct(product: ProductDetails): string;
+  filterProductsByCategory(
+    products: ProductDetails[],
+    category: ProductCategory
+  ): ProductDetails[];
+  isProductAvailable(product: ProductDetails): boolean;
+}
