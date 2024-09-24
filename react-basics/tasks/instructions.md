@@ -32,7 +32,7 @@ Replace `"feat: completed React basics homework"` with a meaningful description 
 Push the newly created branch with your changes to the GitHub repository using the following command:
 
 ```bash
-git push origin firsnamelastname
+git push origin firstname-lastname/react-basics-homework
 ```
 
 ## Step 5: Create a Pull Request (PR)
