@@ -1,5 +1,7 @@
+import { TaskEventEmitter } from "../event-updater";
 import { Task } from "../interfaces/task.interface";
 
+// ! Singleton Pattern used :)
 export class TodoApi {
   private todos: Task[] = [];
   private static instance: TodoApi;
@@ -22,6 +24,7 @@ export class TodoApi {
     const id = this.generateRandomId();
     const newTask = { id, title, completed: completed || false };
     this.todos.push(newTask);
+    TaskEventEmitter.emit("update");
     return newTask;
   }
 
@@ -30,10 +33,12 @@ export class TodoApi {
     if (task) {
       task.completed = !task.completed;
     }
+    TaskEventEmitter.emit("update");
   }
 
   deleteTask(taskId: number) {
     this.todos = this.todos.filter((task) => task.id !== taskId);
+    TaskEventEmitter.emit("update");
   }
 
   private generateRandomId() {

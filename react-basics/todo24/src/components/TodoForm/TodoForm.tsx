@@ -1,7 +1,5 @@
 import React from "react";
 import { TodoApi } from "../../todo-api/todo.api";
-import { TaskEventEmitter } from "../../event-updater";
-import { TaskEvents } from "../../constants/task-events";
 import "./TodoForm.css";
 
 const todoApi = TodoApi.getInstance();
@@ -15,7 +13,6 @@ export function TodoForm() {
       const title = inputRef.current.value;
       todoApi.addTask(title);
       inputRef.current.value = "";
-      TaskEventEmitter.emit(TaskEvents.taskAdded);
     }
   }
 

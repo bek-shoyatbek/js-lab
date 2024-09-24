@@ -14,6 +14,15 @@ export function TaskList({ tasks: tasks }: { tasks: Task[] }) {
     );
   }
 
+  const allTasksCompleted = tasks.every((task) => task.completed);
+  if (allTasksCompleted) {
+    return (
+      <div className="no-tasks-container">
+        <p className="no-tasks-message">All tasks completed!</p>
+      </div>
+    );
+  }
+
   return (
     <div className="task-list-container">
       {tasks.map((task) => (
@@ -23,7 +32,7 @@ export function TaskList({ tasks: tasks }: { tasks: Task[] }) {
             onClick={() => todoApi.deleteTask(task.id)}
             className="delete-button"
           >
-            Delete
+            Remove
           </button>
         </div>
       ))}
