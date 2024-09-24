@@ -1,25 +1,32 @@
 import { TaskComponent } from "../Task/Task";
 import { Task } from "../../interfaces/task.interface";
 import { TodoApi } from "../../todo-api/todo.api";
+import "./TaskList.css";
 
 const todoApi = TodoApi.getInstance();
 
 export function TaskList({ tasks: tasks }: { tasks: Task[] }) {
-  console.log(tasks);
-  if (!tasks) return <p className="no_tasks">No tasks left!</p>;
+  if (!tasks || tasks.length === 0) {
+    return (
+      <div className="no-tasks-container">
+        <p className="no-tasks-message">No tasks left!</p>
+      </div>
+    );
+  }
+
   return (
-    <>
+    <div className="task-list-container">
       {tasks.map((task) => (
-        <ul className="task_list">
+        <div key={task.id} className="task-card">
           <TaskComponent task={task} />
           <button
             onClick={() => todoApi.deleteTask(task.id)}
-            className="delete_button"
+            className="delete-button"
           >
             Delete
           </button>
-        </ul>
+        </div>
       ))}
-    </>
+    </div>
   );
 }

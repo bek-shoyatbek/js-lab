@@ -1,8 +1,8 @@
 import React from "react";
-import "./TodoForm.module.css";
 import { TodoApi } from "../../todo-api/todo.api";
 import { TaskEventEmitter } from "../../event-updater";
 import { TaskEvents } from "../../constants/task-events";
+import "./TodoForm.css";
 
 const todoApi = TodoApi.getInstance();
 
@@ -20,13 +20,18 @@ export function TodoForm() {
   }
 
   return (
-    <>
-      <form className="form">
-        <input type="text" className="input" ref={inputRef} />
-        <button className="add_button" onClick={addTodo}>
+    <div className="todo-form-container">
+      <form className="todo-form" onSubmit={addTodo}>
+        <input
+          type="text"
+          ref={inputRef}
+          className="todo-input"
+          placeholder="Add a new task"
+        />
+        <button type="submit" className="todo-button">
           Add
         </button>
       </form>
-    </>
+    </div>
   );
 }
