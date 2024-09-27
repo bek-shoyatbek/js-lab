@@ -1,10 +1,10 @@
 import React from "react";
-import { TodoApi } from "../../todo-api/todo.api";
-import "./TodoForm.css";
+import { TodoApi } from "../todo-api/todo.api";
+import "./TodoEnterForm.styles.css";
 
 const todoApi = TodoApi.getInstance();
 
-export function TodoForm() {
+export function TodoEnterForm() {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   function addTodo(event: React.FormEvent) {
@@ -23,7 +23,7 @@ export function TodoForm() {
           type="text"
           ref={inputRef}
           className="todo-input"
-          placeholder="Add a new task"
+          placeholder="Add a new todo"
         />
         <button type="submit" className="todo-button">
           Add

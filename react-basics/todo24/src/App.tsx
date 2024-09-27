@@ -1,26 +1,27 @@
 import "./App.css";
-import { TodoForm } from "./components/TodoForm/TodoForm";
+import { Todo } from "./interfaces/todo.interface";
 import { TodoApi } from "./todo-api/todo.api";
-import { TaskList } from "./components/TaskList/TaskList";
 import { useEffect, useState } from "react";
-import { TaskEventEmitter } from "./event-updater";
-import { Task } from "./interfaces/task.interface";
+import { TodoEventEmitter } from "./todo-event-emitter";
+import { TodoEnterForm } from "./Todo/TodoEnterForm/TodoEnterForm.component";
+import { TodoList } from "./Todo/TodoList/TodoList.component";
 
 const todoApi = TodoApi.getInstance();
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
   useEffect(() => {
-    TaskEventEmitter.on("update", () => {
-      setTasks((_tasks) => [...todoApi.getTasks()]);
+    TodoEventEmitter.on("update", () => {
+      setTodos(() => [...todoApi.getTodos()]);
     });
-  }, [tasks]);
+  }, [todos]);
 
   return (
     <>
       <h1 className="title">Todo 24</h1>
-      <TodoForm />
-      <TaskList tasks={tasks} />
+      <TodoEnterForm />
+      <TodoList todos={todos} />
     </>
   );
 }
