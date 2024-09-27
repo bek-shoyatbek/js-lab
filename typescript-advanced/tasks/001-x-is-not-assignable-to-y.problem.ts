@@ -9,8 +9,6 @@ interface UserProfile {
 let user: UserProfile = {
   id: "123",
   preferences: {
-    theme: "light", // theme prop can only be 'light or 'dark'
+    theme: "light", // theme prop takes only "light" or "dark" value
   },
 };
-
-export {}; // To resolve "Cannot redeclare block-scoped variable"
